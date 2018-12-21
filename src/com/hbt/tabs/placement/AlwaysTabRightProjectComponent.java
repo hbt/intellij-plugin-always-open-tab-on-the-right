@@ -42,7 +42,7 @@ public class AlwaysTabRightProjectComponent implements ProjectComponent {
     }
 
     public void initComponent() {
-        logger.setLevel(Level.ALL);
+//        logger.setLevel(Level.ALL);
 
         logger.debug("init");
         MessageBus bus = ApplicationManager.getApplication().getMessageBus();
