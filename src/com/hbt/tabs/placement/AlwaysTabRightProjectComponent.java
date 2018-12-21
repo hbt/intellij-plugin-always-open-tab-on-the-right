@@ -59,7 +59,6 @@ public class AlwaysTabRightProjectComponent implements ProjectComponent {
                         FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(source.getProject());
 
                         for (EditorWindow editorWindow : manager.getWindows()) {
-                            JBTabs tabs = manager.getCurrentWindow().getTabbedPane().getTabs();
 
                             editorWindow.getTabbedPane().getTabs().addListener(new TabsListener() {
                                 @Override
@@ -68,6 +67,7 @@ public class AlwaysTabRightProjectComponent implements ProjectComponent {
                                         LAST_OPENED_FILE_PATH = null;
 
                                         FileEditorManagerEx manager = FileEditorManagerEx.getInstanceEx(source.getProject());
+                                        JBTabs tabs = manager.getCurrentWindow().getTabbedPane().getTabs();
 
                                         logger.debug("TAB CHANGE: " + oldSelection.getText() + "----" + newSelection.getText());
                                         logger.debug("TABS COUNT: " + tabs.getTabCount());
