@@ -14,6 +14,7 @@ import com.intellij.ui.tabs.TabInfo;
 import com.intellij.ui.tabs.TabsListener;
 import com.intellij.util.messages.MessageBus;
 import com.intellij.util.messages.MessageBusConnection;
+import org.apache.log4j.Level;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -41,7 +42,7 @@ public class AlwaysTabRightProjectComponent implements ProjectComponent {
     }
 
     public void initComponent() {
-//        logger.setLevel(Level.ALL);
+        logger.setLevel(Level.ALL);
 
         logger.debug("init");
         MessageBus bus = ApplicationManager.getApplication().getMessageBus();
@@ -76,6 +77,11 @@ public class AlwaysTabRightProjectComponent implements ProjectComponent {
 
                                         int oldIndex = tabs.getIndexOf(oldSelection);
                                         int newIndex = tabs.getIndexOf(newSelection);
+                                        
+                                        if(oldIndex == -1) 
+                                        {
+                                            return;
+                                        }
 
                                         for (int i = 0; i < tabs.getTabCount(); i++) {
 
